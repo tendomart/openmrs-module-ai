@@ -8,24 +8,10 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
-    environment:
-      - HUGGING_FACE_LOGIN_KEY=${HUGGING_FACE_LOGIN_KEY}
-    depends_on:
-      - db
-  
-  app2:
-    build: .
-    container_name: openmrs-ai2
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/app
-    environment:
-      - HUGGING_FACE_LOGIN_KEY=${HUGGING_FACE_LOGIN_KEY}
+    env_file:
+      - .env
     command: >
-      sh -c "cp text2sql/db_config_prod.properties text2sql/db_config.properties &&
-             python text2sql/OpenmrsTextToSqlForMysql.py"
-
+      sh -c "python text2sql/OpenmrsTextToSqlForMysql.py"
   db:
     image: mysql:8.0
     container_name: mysql-db
@@ -39,5 +25,5 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
-volumes:
-  db_data:
+# volumes:
+#   db_data:
