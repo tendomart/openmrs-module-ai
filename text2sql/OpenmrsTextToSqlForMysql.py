@@ -18,7 +18,7 @@ from DatabaseTables import openmrs_tables
 #     provider="ollama"
 # )
 
-model=LiteLLMModel(model_id="ollama/qwen2.5-coder:1.5b"
+model=LiteLLMModel(model_id="ollama/qwen2.5-coder:latest"
                    # api_key="ollama"
                    )
 
