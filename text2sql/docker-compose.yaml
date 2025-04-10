@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: openmrs-ai
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - HUGGING_FACE_LOGIN_KEY=${HUGGING_FACE_LOGIN_KEY}
+    depends_on:
+      - db
+  
+  app2:
+    build: .
+    container_name: openmrs-ai2
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - HUGGING_FACE_LOGIN_KEY=${HUGGING_FACE_LOGIN_KEY}
+    command: >
+      sh -c "cp text2sql/db_config_prod.properties text2sql/db_config.properties &&
+             python text2sql/OpenmrsTextToSqlForMysql.py"
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: openmrs-ai
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

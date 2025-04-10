@@ -1,0 +1,4 @@
+sqlalchemy
+pymysql
+smolagents
+huggingface_hub
