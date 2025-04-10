@@ -18,9 +18,9 @@ from DatabaseTables import openmrs_tables
 #     provider="ollama"
 # )
 
-model=LiteLLMModel(model_id="qwen2.5-coder:1.5b"
-                #    api_key="ollama"
-                   )
+# model=LiteLLMModel(model_id="qwen2.5-coder:1.5b"
+#                 #    api_key="ollama"
+#                    )
 
 
 # Replace the following values with your MySQL database credentials
@@ -92,11 +92,11 @@ sql_engine.description = updated_description
 
 # Initialize the CodeAgent with the SQL engine tool and Hugging Face model
 # Using HuggingFace hosted model Qwen/Qwen2.5-72B-Instruct
-# agent = CodeAgent(
-#     tools=[sql_engine],
-#     # model=HfApiModel("Qwen/Qwen2.5-72B-Instruct"),
-#     model=HfApiModel("Qwen/QwQ-32B"),
-# )
+agent = CodeAgent(
+    tools=[sql_engine],
+    # model=HfApiModel("Qwen/Qwen2.5-72B-Instruct"),
+    model=HfApiModel("Qwen/QwQ-32B"),
+)
 
 # Run the agent with an SQL query
 # agent.run("Which waiter got more total money from tips?")
@@ -106,11 +106,11 @@ sql_engine.description = updated_description
 # response = agent.run("What's the description of the role whose uuid is 8d94f280-c2cc-11de-8d13-0010c6dffd0f ?")
 
 # Agent two using model hosted locally by Ollama
-agent = CodeAgent(
-    tools=[sql_engine],
-    model=model,
-    # add_base_tools=True
-)
+# agent = CodeAgent(
+#     tools=[sql_engine],
+#     model=model,
+#     # add_base_tools=True
+# )
 
 response = agent.run("What's the description of the role whose uuid is 93a9c2f8-9296-488f-9451-43667e1c4d7f ?")
 print(response)
