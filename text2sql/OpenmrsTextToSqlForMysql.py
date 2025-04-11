@@ -19,7 +19,7 @@ from DatabaseTables import openmrs_tables
 # )
 
 model=LiteLLMModel(model_id="qwen2.5-coder"
-                #    api_key="ollama"
+                   api_key="ollama"
                    )
 
 
