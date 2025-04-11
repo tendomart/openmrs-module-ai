@@ -114,5 +114,5 @@ agent = CodeAgent(
     # add_base_tools=True
 )
 
-response = agent.run("What's the description of the role whose uuid is 93a9c2f8-9296-488f-9451-43667e1c4d7f ?")
+response = agent.run("What's the description of the role whose uuid is 93a9c2f8-9296-488f-9451-43667e1c4d7f in the openmrs-ai database?")
 print(response)
