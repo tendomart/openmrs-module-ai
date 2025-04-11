@@ -12,7 +12,7 @@ from DatabaseTables import openmrs_tables
 
 # using Ollama
 model = LiteLLMModel(
-    model_id="ollama_chat/qwen2.5-coder:latest",  # ID of the model you are using
+    model_id="ollama_chat/deepseek-coder:6.7b",  # ID of the model you are using
     api_key=None,  # No API key required for local Ollama usage
     endpoint="http://localhost:11434", # Default local server endpoint for Ollama
     provider="ollama"
