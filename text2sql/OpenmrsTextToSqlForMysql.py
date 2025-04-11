@@ -11,18 +11,18 @@ from huggingface_hub import login
 from DatabaseTables import openmrs_tables
 
 # using Ollama
-# model = LiteLLMModel(
-#     model_id="ollama_chat/qwen2.5-coder:1.5b",  # ID of the model you are using
-#     api_key=None,  # No API key required for local Ollama usage
-#     endpoint="http://localhost:11434", # Default local server endpoint for Ollama
-#     provider="ollama"
-# )
+model = LiteLLMModel(
+    model_id="ollama_chat/qwen2.5-coder:1.5b",  # ID of the model you are using
+    api_key=None,  # No API key required for local Ollama usage
+    endpoint="http://localhost:11434", # Default local server endpoint for Ollama
+    provider="ollama"
+)
 
-model=LiteLLMModel(model_id="qwen2.5-coder:latest",
-                    api_key=None,
-                     provider="ollama",
-                     endpoint="http://localhost:11434"
-                   )
+# model=LiteLLMModel(model_id="qwen2.5-coder:latest",
+#                     api_key=None,
+#                      provider="ollama",
+#                      endpoint="http://localhost:11434"
+#                    )
 
 
 # Replace the following values with your MySQL database credentials
