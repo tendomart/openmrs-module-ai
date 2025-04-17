@@ -1,3 +1,5 @@
+from typing import Any
+
 import streamlit as st
 import mysql.connector
 from langchain.llms import Ollama
@@ -75,7 +77,8 @@ prompt = st.text_input("Enter your query in plain English (e.g., 'Get all orders
 if prompt:
     try:
         response = agent.run(prompt)
-        if isinstance(response, list):  # If valid results are returned
+        # if isinstance(response, list):  # If valid results are returned
+        if isinstance(response, object):
             st.write("### Query Results")
             st.dataframe(response)
         else:
