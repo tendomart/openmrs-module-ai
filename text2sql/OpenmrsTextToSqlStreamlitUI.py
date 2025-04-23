@@ -21,8 +21,8 @@ def connect_to_database():
         return mysql.connector.connect(
             host="localhost",
             user="root",  # Replace with your MySQL username
-            password="JesusChrist",  # Replace with your MySQL password
-            database="openmrs-ai"  # Replace with your MySQL database
+            password=${PASSWORD},  # Replace with your MySQL password
+            database=${DATABASE}  # Replace with your MySQL database
         )
     except mysql.connector.Error as err:
         st.error(f"MySQL Connection Error: {err}")
